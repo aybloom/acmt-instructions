@@ -1,46 +1,37 @@
-## InSpace Information Page
+## ACMT Information Page
 
-This page houses all of the instructions you will need for using the ACMT to pull measures for your dataset. 
+**ACMT Installation and Architecture**
+The ACMT and its dependencies are available on GitHub. The ACMT is packaged to be run using Docker, a technology that lets developers package and run virtual machines within another computing environment. 
 
-As an InSpace partner, you will be following our detailed instructions to gather data on the social and built environment surrounding each of your participant's residential address. Once data has been gathered, you will share with us the de-identified data, allowing us to examine how built environment factors modify the effect of physical activity interventions. 
+The ACMT comprises two components: (1) a local geocoder, which identifies a latitude and longitude given a US street address and (2) a context measure assembler, which computes measures from publicly available data sources linked to a latitude and longitude. ACMT users access both of these components using an RStudio/RShiny-based web interface that is hosted within the Docker container.
+ 
+Figure 1 below shows the flow of data in a typical use of the ACMT. First, a data analyst points their browser to the web interface (accessing the Docker container on their local machine). The R environment will be running in the web interface using RStudio/RShiny, depending on analyst preference. That R environment hosts logic that can convert an address (limited to the United States) to its corresponding latitude and longitude (the geocoder) and can download public data from the Internet to compile environmental context measures for a latitude and longitude (the context measure assembler). The address conversion is performed using the locally installed geocoder, thus preserving privacy. The analyst can then work with these context measures directly in the RStudio interface or can export them for use with other statistical software. The components are described in more detail below.
 
-For this study, partners will be pulling data from the following datasets: 
+<img width="468" height="287" alt="image" src="https://github.com/user-attachments/assets/d2d77ab9-f53d-41e7-91c4-c402b8beb82a" />
+
+**Datasets currently available in the ACMT**
+
+The following datasets are currently set up in the ACMT: 
    -  [The American Community Survey](https://www.census.gov/programs-surveys/acs/about.html)
    -  [Walkability Index](https://www.epa.gov/smartgrowth/smart-location-mapping#walkability)
    -  [CDC PLACES data](https://www.cdc.gov/places/index.html)
    -  [National Land Cover Database](https://www.usgs.gov/centers/eros/science/national-land-cover-database)
    -  [Modified Retail Food Environment Index (mRFEI)](https://www.cdc.gov/obesity/downloads/census-tract-level-state-maps-mrfei_TAG508.pdf)
    -  [Trust for Public Lands' ParkServe](https://www.tpl.org/parkserve)
-   -  [Applied Geographic Solutions CrimeRisk Data](https://appliedgeographic.com/crimerisk/)
    -  [Sidewalk Score](https://journals.sagepub.com/doi/10.1177/0033354920968799)
    -  [Regional Price Parity](https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area)
    -  [Gentrification Measure](https://drexel.edu/uhc/resources/briefs/Measure-of-Gentrification-for-Use-in-Longitudinal-Public-Health-Studies-in-the-US/)
 
+*Additional datasets may be added to the ACMT for use in generating environmental measures*
 
-### Step 1: [Installing the Docker & Setting up the ACMT](https://aybloom.github.io/inspace/Inspace_setup/ACMT-setup-Inspace.html)
+**Installation overview**
+1. [Install Docker Desktop Software] (https://docs.docker.com/desktop/setup/install/windows-install/
+2. [Download ACMT code frrom github repository] (https://github.com/aybloom/acmt-network)
+3. Run docker compose scripts to build ACMT Docker containers.
+4. Run Rstudio in the ACMT Docker container (accessed via browser)
+5. In Rstudio, runt he ACMT shiny app and follow the steps to generate geocodes and environmental measures for your dataset. 
 
-The first step in using the ACMT is to install the Docker, which creates a container on your local destop and and allows the ACMT to gather measures for your data without sending our data outside of your local machine. Once you install Docker, you will download the ACMT source code and install it. 
-
-   * *Instructions for installing the Docker, downloading the ACMT source code can be found [HERE](https://aybloom.github.io/inspace/Inspace_setup/ACMT-setup-Inspace.html)*
-      * *Follow [THIS LINK](https://youtu.be/hHCyvDOB3TY) for a video guide to setting up the ACMT*
-
-### Step 2: Download the Inspace R code and upload into your R environment
-
-Next you will need to download the R code that is specific to the Inspace project. 
-
-   * [Click this link](https://github.com/aybloom/ACMT_Inspace/archive/refs/heads/main.zip) to download a zipped file of the R code for Inspace. If you are prevented on downloading files due to a firewall, email Amy and she can send you a zipped folder of the code via email. 
-
-### Step 3: Open and run the R script to run the Inspace - ACMT Application
-
- Finally, you are ready to run the Inspace application in your Rstudio environment, which will guide you through the process of uploading your data, geocoding (if necessary), and pulling environmental measures. 
- 
-   * In Rstudio in your browser, you will open the 'Inspace - ACMT Shiny App.R' file located in your Inspace folder (this folder is created when you upload the Inspace code in Step 2). 
-   * In the top right of the page of code, click the 'Run App' button (green play button). This will open the Application in a new window. 
-   * Follow instructions in the application to upload your data (be sure to check formatting of your data prior to uploading). 
-   * If geocoding is necessary, follow the application instructions for geocoding and checking your geocodes. 
-   * Run each data pull, one by one to pull environmental measures. Your progress can be check on the 'Overall Progress' tab of the application.
-   * All of your data pulls are saved in separate files in your Inspace > data_pull_measures folder in you Rstudio environment. 
+**[Step-by-step installation instructions] (https://aybloom.github.io/inspace/Inspace_setup/ACMT-setup-Inspace.html)**
 
 ### Support or Contact. 
-
-If you run into any issues along the way, don't hesitate to reach out to [Amy](mailto:aybloom@uw.edu)
+If you run into any issues along the way, reach out to [Amy](mailto:aybloom@uw.edu)
