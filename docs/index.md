@@ -1,5 +1,7 @@
 # ACMT Information Page
 
+**[Step-by-step installation instructions](https://aybloom.github.io/acmt-instructions/acmt_setup/ACMT-setup.html)**
+
 ## ACMT Installation and Architecture
 
 *The ACMT and its dependencies are available on GitHub. The ACMT is packaged to be run using Docker, a technology that lets developers package and run virtual machines within another computing environment.* 
