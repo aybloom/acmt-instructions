@@ -1,4 +1,4 @@
-## ACMT Information Page
+### ACMT Information Page
 
 **ACMT Installation and Architecture**
 
@@ -32,7 +32,7 @@ The following datasets are currently set up in the ACMT:
 4. Run Rstudio in the ACMT Docker container (accessed via browser)
 5. In Rstudio, runt he ACMT shiny app and follow the steps to generate geocodes and environmental measures for your dataset. 
 
-**[Step-by-step installation instructions](https://aybloom.github.io/inspace/Inspace_setup/ACMT-setup-Inspace.html)**
+**[Step-by-step installation instructions](https://aybloom.github.io/acmt-instructions/acmt_setup/ACMT-setup.html)**
 
 ### Support or Contact. 
 If you run into any issues along the way, reach out to [Amy](mailto:aybloom@uw.edu)
