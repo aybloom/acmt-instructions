@@ -34,5 +34,5 @@ The following datasets are currently set up in the ACMT:
 
 **[Step-by-step installation instructions](https://aybloom.github.io/acmt-instructions/acmt_setup/ACMT-setup.html)**
 
-## Support or Contact. 
-If you run into any issues along the way, reach out to [Amy](mailto:aybloom@uw.edu)
+## Contact. 
+If you run into any issues along the way or have additional questions, reach out to [Amy](mailto:aybloom@uw.edu)
