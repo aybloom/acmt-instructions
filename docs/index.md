@@ -1,6 +1,7 @@
 ## ACMT Information Page
 
 **ACMT Installation and Architecture**
+
 The ACMT and its dependencies are available on GitHub. The ACMT is packaged to be run using Docker, a technology that lets developers package and run virtual machines within another computing environment. 
 
 The ACMT comprises two components: (1) a local geocoder, which identifies a latitude and longitude given a US street address and (2) a context measure assembler, which computes measures from publicly available data sources linked to a latitude and longitude. ACMT users access both of these components using an RStudio/RShiny-based web interface that is hosted within the Docker container.
@@ -25,13 +26,13 @@ The following datasets are currently set up in the ACMT:
 *Additional datasets may be added to the ACMT for use in generating environmental measures*
 
 **Installation overview**
-1. [Install Docker Desktop Software] (https://docs.docker.com/desktop/setup/install/windows-install/
-2. [Download ACMT code frrom github repository] (https://github.com/aybloom/acmt-network)
+1. [Install Docker Desktop Software](https://docs.docker.com/desktop/setup/install/windows-install/)
+2. [Download ACMT code frrom github repository](https://github.com/aybloom/acmt-network)
 3. Run docker compose scripts to build ACMT Docker containers.
 4. Run Rstudio in the ACMT Docker container (accessed via browser)
 5. In Rstudio, runt he ACMT shiny app and follow the steps to generate geocodes and environmental measures for your dataset. 
 
-**[Step-by-step installation instructions] (https://aybloom.github.io/inspace/Inspace_setup/ACMT-setup-Inspace.html)**
+**[Step-by-step installation instructions](https://aybloom.github.io/inspace/Inspace_setup/ACMT-setup-Inspace.html)**
 
 ### Support or Contact. 
 If you run into any issues along the way, reach out to [Amy](mailto:aybloom@uw.edu)
