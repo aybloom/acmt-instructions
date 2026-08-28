@@ -1,14 +1,19 @@
 ---
-title: "ACMT Setup"
-author: "Amy Youngbloom"
-date: "1/4/2025"
-output: html_document
+title: "ACMT Setup Instructions"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    toc_collapsed: true
+    toc_depth: 3
+    theme: lumen
+  
 ---
 
 ```{r setup, include=FALSE}
 #knit this file with the working directory of "workspace/" instead of "workspace/examples"
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
-knitr::opts_knit$set(root.dir = '../')
+#knitr::opts_knit$set(root.dir = '../')
 library(tidycensus)
 library(tidyverse)
 library(dplyr)
@@ -33,7 +38,7 @@ library(dplyr)
   +	Click on the Download button that works for your computer -- if you have a Macbook with an apple chip, select apple chip.
   +	Once the download completes, follow the instructions to complete installation.
 
-**NOTE: if you do not have administrator privileges, you will need your IT to download and install Docker for you and make you a user in the Docker-user group so that you can run Docker as an admin. See here for more instructions: https://docs.docker.com/desktop/install/windows-install/#install-docker-desktop-on-windows
+**NOTE: if you do not have administrator privileges, you will need your IT to download and install Docker for you and make you a user in the Docker-user group so that you can run Docker as an admin. [See here for more instructions](https://docs.docker.com/desktop/install/windows-install/#install-docker-desktop-on-windows)
 
 
 #### 1(b) **For mac (M1 or M2 chip)**
@@ -41,7 +46,7 @@ library(dplyr)
 * you may find you need to run $ softwareupdate --install-rosetta in your terminal
 
 ```{r docker1, echo=FALSE, fig.cap="Docker Settings: check the Use Docker Compose V2 option", out.width = '75%'}
-knitr::include_graphics(paste0(getwd(), "/Inspace_setup/pictures/Docker-pic.png"))
+knitr::include_graphics(paste0(getwd(), "/pictures/Docker-pic.png"))
 ```
 #### 1(c) **For windows**
 * You will need to Download the WSL 2 Linux kernel Windows update
@@ -55,7 +60,7 @@ knitr::include_graphics(paste0(getwd(), "/Inspace_setup/pictures/Docker-pic.png"
 	+ Unzip the ACMT Code to the documents folder on your computer (i.e., C:\Users\username\Documents) and **rename the folder to acmt-network**.
 
 ```{r github, echo=FALSE, fig.cap="Download ACMT source code from github", out.width = '75%'}
-knitr::include_graphics(paste0(getwd(),"/Inspace_setup/pictures/github-pic.png"))
+knitr::include_graphics(paste0(getwd(),"/pictures/github-pic.png"))
 ```
  
 ### 3.	Edit the .env file to include specific states
@@ -65,11 +70,8 @@ knitr::include_graphics(paste0(getwd(),"/Inspace_setup/pictures/github-pic.png")
       + WA does not need to be included, but if you do not include it, you may need to enter an address from your study instead in the testing section below
       +	To include all states, put GEOCODER_STATES=* (note that the more state you include the longer the ACMT will take to install)
     +	Save and close the file
-    
-### 4. For Windows only - restart your computer
-  + Once the Docker is installed, and, if you're on Windows, the WSL update is installed, restart your computer.
 
-### 5.	Install the ACMT
+### 4.	Install the ACMT
   *	Open Command Prompts (PC) or Terminal (Mac)
     +	In Windows: https://www.howtogeek.com/235101/10-ways-to-open-the-command-prompt-in-windows-10/
     +	On a Mac: https://www.howtogeek.com/682770/how-to-open-the-terminal-on-a-mac/
@@ -78,62 +80,55 @@ knitr::include_graphics(paste0(getwd(),"/Inspace_setup/pictures/github-pic.png")
     +   You can also check the contents of the folder by typing ‘ls’ or 'dir', for example to ensure you are in the right folder.
   * Finally, you can install the ACMT by running docker-compose up --build in the terminal (assure you have two dashes in front of build)
 
-  * This process can take 30 minutes or longer (depending on how many states you selected to load in). Expect an additional 30 minutes or so for each additional state (the actual length depends on your computer speed)
+  * This process can take 30 minutes or longer (depending on how many states you selected to load in). Expect an additional 30 minutes or so for each additional state (the actual length depends on your download speeds)
 
   * Examples of code:
   
 ```{r terminal2, echo=FALSE, fig.cap="Show the contents of the folder in the terminal/command prompt window", out.width = '50%'}
-knitr::include_graphics(paste0(getwd(),"/Inspace_setup/pictures/cp-pic2.png"))
+knitr::include_graphics(paste0(getwd(),"/pictures/cp-pic2.png"))
 ```
 ```{r terminal1, echo=FALSE, fig.cap="Navigate to the folder path in the terminal/command prompt window", out.width = '50%'}
-knitr::include_graphics(paste0(getwd(),"/Inspace_setup/pictures/cp-pic1.png"))
+knitr::include_graphics(paste0(getwd(),"/pictures/cp-pic1.png"))
 ```
 ```{r terminal3, echo=FALSE, fig.cap="Install the ACMT using the docker-compose up --build command in the terminal/command prompt window", out.width = '50%'}
-knitr::include_graphics(paste0(getwd(),"/Inspace_setup/pictures/cp-pic3.png"))
+knitr::include_graphics(paste0(getwd(),"/pictures/cp-pic3.png"))
 ```
 
 
-### 6. Set up the ACMT
+### 5. Set up the ACMT
 
-  * Once installation is complete, navigate to Docker and ensure all of the acmt-network containers are running. When they are green, they are running. Click the triangle play button to start the conatiners, or the square stop button to stop them when not using the ACMT (circled in red below)
+  * Once installation is complete, navigate to Docker and ensure all of the acmt-network containers are running. When they are green, they are running. Click the triangle play button to start the containers, or the square stop button to stop them when not using the ACMT (circled in red below)
   
 ```{r start docker, echo=FALSE, fig.cap="Start the acmt-network container in the Docker (play button)", out.width = '50%'}
-knitr::include_graphics(paste0(getwd(),"/Inspace_setup/pictures/docker-pic2.png"))
+knitr::include_graphics(paste0(getwd(),"/pictures/docker-pic2.png"))
 ```
   
   * Navigate to http://localhost:8787/ in a web browser. You should see a Rstudio workspace in your browser: 
 
 ```{r Rstudio browser, echo=FALSE, fig.cap="Navigate to the ACMT url in your browswer to open a Rstudio environment", out.width = '50%'}
-knitr::include_graphics(paste0(getwd(),"/Inspace_setup/pictures/rstudio-image.png"))
+knitr::include_graphics(paste0(getwd(),"/pictures/rstudio-image.png"))
 ```
 
-  * Note that while you're running R in a browser, it is running in your own local environment. When you close the window and stop the container in the Docker, your data will be retained. However, if you upgrade your Docker or delete Docker, your Rstudio environment and all the files will be lost, so you will want to save the data from your Rstudio files elsehwere before removing Docker at the end of the data pulling process.
-    
-### 7. Download ACMT Shiny App Code
-    
-  * When you are ready to start working with your own dataset, you will need to first download the shiny app code that you will use.*
-  * Click this link to download a zipped folder with the Inspace code it in: 
-  
+  * Note that while you're running R in a browser, it is running in your own local environment. When you close the window and stop the container in the Docker, your data will be retained. However, if you upgrade your Docker or delete Docker, your Rstudio environment and all the files will be lost, so you will want to download and save the data from your Rstudio files locally before removing Docker at the end of the data pulling process.
 
-```{r Rstudio upload zipped folder, echo=FALSE, fig.cap="Upload the zipped folder of ACMT files", out.width = '50%'}
-knitr::include_graphics(paste0(getwd(),"/Inspace_setup/pictures/rstudio-upload.png"))
-```
-  
-### 8. Run the Shiny Application in R
+### 6. Test the ACMT Geocoder 
 
-  + The complete code and instructions for geocoding and pulling environmental data for your dataset are in the file named, 'Inspace - ACMT Shiny App.R'. Open this app, then click the 'Run App' button in the top right corner of the page of code: 
+    
+### 7. Run the Shiny Application in R
+
+  + The complete code and instructions for geocoding and pulling environmental data for your dataset are in the file named, 'ACMT_shiny/ACMT Shiny App.R'. Open this app, then click the 'Run App' button in the top right corner of the page of code: 
   
 ```{r Rstudio run shiny app, echo=FALSE, fig.cap="Run the Inspace application", out.width = '50%'}
-knitr::include_graphics(paste0(getwd(),"/Inspace_setup/pictures/rstudio-run-shiny-app.png"))
+knitr::include_graphics(paste0(getwd(),"/pictures/rstudio-run-shiny-app.png"))
 ```
   
-  + Instructions for each step of the geocoding and data pull process are laid out in the Inspace application. 
+  + Instructions for each step of the geocoding and data pull process are laid out in the Shiny app. 
   + If you run into any issues or have additional questions, reach out to Amy at aybloom@uw.edu. 
   
-### 9. Pausing and restarting the ACMT
+### 7. Pausing and restarting the ACMT
 
   * Pausing the ACMT saves your work in the Rstudio environment. However, because periodic updates to the Docker may result in a loss of Rstudio environment files, a good practice is to download and save your files locally on a regular basis (your data pull files are all located in the 'data_pull_measures' folder in your Inspace folder in Rstudio). You can select the entire data_pull_measures folder, then click "More" (with the gear icon) and select export to download your folder.
   * To pause the ACMT, save any work, then close the browser tab. 
     + Next navigate to the Docker application and click the 'STOP' button for the acmt-network container
   * When you are ready to resume, reopen the Docker and press the start button for the acmt-network container (may take a few seconds to start). 
-    + Once the container is started, go to http://localhost:8787/ in your we browser. 
+    + Once the container is started, go to http://localhost:8787/ in your web browser. 
