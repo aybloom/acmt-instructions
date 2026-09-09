@@ -113,6 +113,9 @@ knitr::include_graphics(paste0(getwd(),"/pictures/rstudio-image.png"))
 
 ### 6. Test the ACMT Geocoder 
 
+  + To test the geocoder function and ensure the state data has successfully been loaded into the Docker database, first open the TestDockerACMT.R file. 
+  + Run the first few lines of code to create the geocoder() functions and geocode() the UW address. 
+  + *Note if you did not load WA state, or if there are other states that have been loaded and need to be tested, update the address listed in the geocode function*
     
 ### 7. Run the Shiny Application in R
 
